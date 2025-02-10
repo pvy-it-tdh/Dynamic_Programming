@@ -9,13 +9,10 @@ int main()
     dp[1] = 1;
     for (int i = 2; i <= n; i++)
     {
-        for (int j = 1; j <= k; j++)
+        for (int j = 1; j <= min(i, k); j++)
         {
-            if (i - j >= 0)
-            {
-                dp[i] += dp[i - j];
-                dp[i] %= 1000000007;
-            }
+            dp[i] += dp[i - j];
+            dp[i] %= 1000000007;
         }
     }
     cout << dp[n];
